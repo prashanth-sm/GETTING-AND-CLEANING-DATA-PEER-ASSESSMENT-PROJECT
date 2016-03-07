@@ -31,7 +31,7 @@ For each record it is provided:
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
 
-The dataset includes the following files:
+The dataset includes the following files and variables:
 =========================================
 - 'features_info.txt': Shows information about the variables used on the feature vector.
 
@@ -46,6 +46,8 @@ The dataset includes the following files:
 - 'test/X_test.txt': Test set. : Variable in program "x.test"
 
 - 'test/y_test.txt': Test labels.: Variable in program "y.test"
+
+- Variable "combined" - contains the merged data of train &  test
 
 The following files are available for the train and test data. Their descriptions are equivalent. 
 
