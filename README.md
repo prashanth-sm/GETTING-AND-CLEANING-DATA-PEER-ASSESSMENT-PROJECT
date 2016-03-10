@@ -15,4 +15,5 @@ Then the following tasks are performed:
 2.Extracts only the measurements on the mean and standard deviation for each measurement. This is done using grep with string matching"mean()" or "std()" . This data is stored as Extract.data
 3.Uses descriptive activity names to name the activities in the data set. First the int values are converted to character values and then activity names are assigned to corresponding numbers.
 4.Appropriately labels the data set with descriptive variable names.   All short form or abbreviated characters are changed to appropriate full string
-5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject as "Average.values.data". Then "Average.values.data" is orderd as per subject and then as per activity and stored as "tidy.data"
+5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject as "Average.values.data". Then "Average.values.data" is orderd as per subject and then as per activity and stored as "tidy.data".
+"tidy.data" is written into a text file and upload here for reference.
