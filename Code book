@@ -1,13 +1,16 @@
 Code Book for "run_analysis.R" file
-
 This file describes the data source and data variables handled in the R script : "run_analysis.R"
-
 Data is obtained from the following link:
-
 "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "
-
 Detailed information about Data set variables can be found at:
 "http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#"
+
+Synopsis for this codebook:
+Section 1: Detailed descriptions of Input data files
+Section 2: Detailed description of Transformations done on Input data files
+Section 3: Detailed description of Tidy data set
+
+Section 1: Detailed Descriptions of Input Data files:
 
 This data contains details about the experiments which have been carried out with a group of 30 volunteers within an age bracket 
 of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
@@ -72,3 +75,41 @@ Notes:
 - The gyroscope units are rad/seg.
 - A video of the experiment including an example of the
   6 recorded activities with one of the participants can be seen in the following link: http://www.youtube.com/watch?v=XOEN9W05_4A
+  
+ 
+ Section 2: Detailed Description of Transformation done of Input data:
+ 
+ 1) All input data files are downloaded and unzipped into data tables , as follows:
+ 
+ - 'features.txt': List of all features. : variable in program "features" with dimensions: 561 obs of 2 variables
+
+- 'train/X_train.txt': Training set. : Variable in program "x.train"  with dimensions: 7352 obs of 561 variables
+
+- 'train/y_train.txt': Training labels. : Variable in program "y.train"  with dimensions: 7352 obs of 561 variables
+
+- 'test/X_test.txt': Test set. : Variable in program "x.test"  with dimensions: 2947 obs of 1 variable
+
+- 'test/y_test.txt': Test labels.: Variable in program "y.test"  with dimensions: 2947 obs of 1 variable
+
+2) Train data is appended with test data. Following is data tables:
+- "dataSubj" - data table with subjects in train and test data. Dimensions : 10299 obs of 1 Variable
+- "data.activity" - data table with activities from y.train and y.test data. Dimesions : 10299 obs of 1 variable
+- "data.feat" - data table with x.train and x.test data . Dimensions : 10299 obs of 561 variables
+3) Corresponding Column names are assigned ; refer code.
+4) "combined" - data table column binds subjects with activities : Dimension 10299 obs of 2 variables
+5) "Fulldata" data table column binds "data.feat" with subjects and activities ; Dimension: 10299 obs of  563 variables
+6)  Column headings containing "mean()" or "std()" are selected using grep and stored in "subset.Feature.Names"
+7) "selected.Names" is a list containing column with mean() or std() and corresponding subject and activity
+8) "Extracted.data" is a data table subsetted from"Fulldata" with "selected.Names" as creteria; Dimensions 10299 obs of 68 variables
+9) Acitivity description is given to the activities factors in the data table "Extracted.data"
+10) Abbreviated strings are converted into Expanded form and stored in "Extracted.data"
+11) "Average.value.data" is a data table which is aggregated from "Extracted.data" for each subject and activity with average(ie Mean) value 
+12) "tidy.data" is data table which is ordered based on Subject and Activity
+13) "tidy.data" is written into text file "Tidy.txt"
+
+Section 3:
+"Tidy.txt" Contains the required cleaned data.
+
+Dimesions :  180 obs of 68 variables;
+
+180 obs are unique observation based on each subject and its activities.
